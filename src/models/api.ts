@@ -16,6 +16,8 @@ interface AnimeImage {
     large_image_url: string;
 }
 
+
+
 interface TrailerImages {
     image_url: string;
     small_image_url: string;

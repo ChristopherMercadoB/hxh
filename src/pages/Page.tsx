@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
 import './Page.css';
 import Home from '../components/Home';
+import Characters from '../components/Characters';
 
 const Page: React.FC = () => {
 
@@ -26,6 +27,7 @@ const Page: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <Home/>
+        <Characters/>
       </IonContent>
     </IonPage>
   );

@@ -52,7 +52,8 @@ const useFetch = <T>(url: string) => {
   return{
     data: State.data,
     isLoading: State.isLoading,
-    errorMessage: State.error?.errorMessage
+    errorMessage: State.error?.errorMessage,
+    hasError: State.hasError
   };
 };
 
