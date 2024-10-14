@@ -26,7 +26,6 @@ const Page: React.FC = () => {
             <IonTitle size="large">{name}</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <Home/>
         <Characters/>
       </IonContent>
     </IonPage>

@@ -13,22 +13,21 @@ interface ImageWEBP{
 interface Character {
     mail_id: number;
     url: string;
-    images: [
+    images: {
        jpg: ImageJPG,
        webp: ImageWEBP
-    ];
+    };
     name: string;
 }
 
 interface Person {
     mal_id: number;
     url: string;
-    images: [
+    images: {
         jpg: ImageJPG,
-     ];
+    };
      name: string;
 }
-
 
 interface CharacterData{
     character: Character;

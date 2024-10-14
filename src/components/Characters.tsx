@@ -7,26 +7,33 @@ import {
   IonCardTitle,
 } from "@ionic/react";
 
+import './Character.css'
+
 const apiUrl = "https://api.jikan.moe/v4/anime/11061/characters";
 
 const Characters = () => {
   const { data, isLoading, hasError } = useFetch<AllCharactersData>(apiUrl);
-
-  const arr = [];
-
-  for (let i = 0; i <= 10; i++) {
-    arr.push(data?.data[i]);
-    console.log(arr[i]);
-  }
+  const arr = data?.data.slice(0, 6) || [];
 
   return (
     <>
-      {data?.data.map((element, key) => (
-        <IonCard>
-          <img alt="Silhouette of mountains" src={element.character.images[0].image_url} />
+      {
+      isLoading ? 
+      <div>
+        Cargando...
+      </div>
+      : hasError ? 
+      <div>
+        Hubo un error al cargar los datos
+      </div>
+      :arr.map((element, key) => {
+        const imageUrl = element.character.images.jpg.image_url
+        return(
+        <IonCard key={key}>
+          <img alt="Silhouette of mountains" src={imageUrl} />
           <IonCardHeader>
-            <IonCardTitle>{element.character.name}</IonCardTitle>
-            <IonCardSubtitle>{element.character.url}</IonCardSubtitle>
+            <IonCardTitle>{element?.character.name}</IonCardTitle>
+            <IonCardSubtitle>{element?.character.url}</IonCardSubtitle>
           </IonCardHeader>
 
           <IonCardContent>
@@ -34,7 +41,8 @@ const Characters = () => {
             nothing less.
           </IonCardContent>
         </IonCard>
-      ))}
+        )
+      })}
     </>
   );
 };

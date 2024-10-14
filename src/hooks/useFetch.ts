@@ -11,7 +11,7 @@ const useFetch = <T>(url: string) => {
   const getApi = async () => {
 
     normalize();
-
+    await new Promise((resolve)=> setTimeout(resolve, 1500))
     const res = await fetch(url);
     if (!res.ok) {
       setState({
